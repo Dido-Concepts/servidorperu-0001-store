@@ -45,50 +45,48 @@ const infoProduct = {
 ---
 
 <Layout title={'Servidor Peru - NET'}>
-  <section class="flex flex-col gap-10 max-w-screen-base mx-auto mb-20">
-    <section class="flex gap-2">
+  <section class="flex flex-col gap-6 max-w-screen-xl mx-auto mb-10 p-4 sm:gap-8 lg:gap-12 lg:mb-20 lg:p-8">
+    <section class="flex flex-col lg:flex-row gap-6 lg:gap-12">
       <div class="flex-1">
-        {
-          product.images && product.images.length > 0 && (
-            <div class="flex gap-2 px-8">
-              {product.images.map((image) => (
-                <img
-                  src={image.url}
-                  alt={product.title}
-                  class="w-20 h-20 rounded-lg object-center object-cover drop-shadow-sm"
-                  width={80}
-                  height={80}
-                />
-              ))}
-            </div>
-          )
-        }
+        {product.images && product.images.length > 0 && (
+          <div class="flex gap-2 px-4 sm:px-6 lg:px-8">
+            {product.images.map((image) => (
+              <img
+                src={image.url}
+                alt={product.title}
+                class="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-center object-cover drop-shadow-sm"
+                width={64}
+                height={64}
+              />
+            ))}
+          </div>
+        )}
         <img
           src={product.thumbnail || '/placehold-products.png'}
           alt={product.title}
-          class="w-full rounded-t-lg p-8 object-center object-cover drop-shadow-sm"
-          width={800}
-          height={800}
+          class="w-full rounded-t-lg object-center object-cover drop-shadow-sm mt-4"
+          width={600}
+          height={600}
         />
       </div>
-      <div class="flex-1 p-8 flex flex-col gap-12">
-        <section class="flex flex-col gap-4">
-          <h1 class="text-4xl font-bold text-slate-800">
+      <div class="flex-1 p-4 sm:p-6 lg:p-8 flex flex-col gap-8">
+        <section class="flex flex-col gap-2 sm:gap-4">
+          <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800">
             {product.title}
           </h1>
-          <p class="font-bold text-slate-500">
+          <p class="font-bold text-slate-500 text-base sm:text-lg">
             {product.subtitle}
           </p>
         </section>
 
-        <h1 class="text-4xl font-bold text-slate-800">
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800">
           {formattedPrice}
         </h1>
 
-        <div class="flex gap-6">
+        <div class="flex flex-col sm:flex-row gap-4 lg:gap-6">
           <ProductButton {...infoProduct} client:visible />
           <a
-            class="middle w-full none center mr-4 rounded-lg bg-green-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none flex items-center justify-center gap-4"
+            class="middle w-full sm:w-auto mr-4 rounded-lg bg-green-500 py-3 px-6 font-sans text-sm lg:text-base font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none flex items-center justify-center gap-4"
             data-ripple-light="true"
             href={`https://api.whatsapp.com/send?phone=51998489480&text=Estoy%20interesado%20en%20este%20producto%3A%20${urlProduct}`}
             target="_blank"
@@ -100,11 +98,13 @@ const infoProduct = {
       </div>
     </section>
 
-    <section class="flex flex-col gap-4">
-      <h1 class="text-2xl font-bold text-slate-800">
-        Descripcion del Producto
+    <section class="flex flex-col gap-2 sm:gap-4 lg:gap-6">
+      <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800">
+        Descripción del Producto
       </h1>
-      <p class="font-bold text-slate-500">{product.description}</p>
+      <p class="font-bold text-slate-500 text-base sm:text-lg">
+        {product.description}
+      </p>
     </section>
   </section>
 </Layout>
