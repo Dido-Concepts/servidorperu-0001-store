@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       dropShadow: {
-        gift: '3px 4px 8px rgba(0, 96, 255, 0.4)' // Ajustado a commerce 600
+        gift: '3px 4px 8px rgba(0, 96, 255, 0.4)'
       },
       boxShadow: {
         button: 'inset 0 6px 12px #26b6ff, 0 0 17px rgba(38, 182, 255, 0.77), inset 0 1px 10px rgba(255, 255, 255, 0.55)',
