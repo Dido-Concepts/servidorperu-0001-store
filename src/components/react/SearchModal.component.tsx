@@ -28,15 +28,24 @@ type HitProps = {
 
 function Hit ({ hit }: HitProps) {
   return (
-    <article className="flex w-full gap-7 ">
-      <a href={`/product/${hit.objectID}/${hit.handle}`} className=" sm:w-32 h-32 bg-gray-100 flex-shrink-0 rounded-md overflow-hidden">
-        <img className="w-full h-full object-cover" src={hit.thumbnail} alt={hit.title} />
+    <article className="flex flex-col sm:flex-row w-full gap-4 sm:gap-7">
+      <a
+        href={`/product/${hit.objectID}/${hit.handle}`}
+        className="w-full sm:w-32 h-32 bg-gray-100 flex-shrink-0 rounded-md overflow-hidden"
+      >
+        <img
+          className="w-full h-full object-cover"
+          src={hit.thumbnail}
+          alt={hit.title}
+        />
       </a>
-      <a href={`/product/${hit.objectID}/${hit.handle}`}>
-        <h1 className="text-base font-bold text-commerce-950">
+      <a href={`/product/${hit.objectID}/${hit.handle}`} className="flex flex-col justify-between">
+        <h1 className="text-sm sm:text-base font-bold text-commerce-950">
           <Highlight hit={hit} attribute="title" />
         </h1>
-        <p className='text-sm font-medium text-gray-500'>Id Producto: <span>{hit.objectID}</span></p>
+        <p className="text-xs sm:text-sm font-medium text-gray-500">
+          Id Producto: <span>{hit.objectID}</span>
+        </p>
       </a>
     </article>
   )

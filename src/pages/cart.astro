@@ -15,7 +15,8 @@ import { ListProduct } from '@src/modules/cart/sections/ListProduct.section';
       <p class="text-sm">Comprando en Peru Servidor</p>
     </div>
     <div class="flex flex-wrap lg:flex-nowrap lg:gap-x-12 gap-y-6">
-      <div class="lg:w-2/3 w-full">
+
+      <div class="w-full lg:w-2/3">
         <div class="flex flex-col gap-5">
           <ul class="list-none">
             <ListProduct client:visible />
@@ -23,7 +24,7 @@ import { ListProduct } from '@src/modules/cart/sections/ListProduct.section';
         </div>
       </div>
 
-      <div class="w-full lg:w-1/3 md:w-full">
+      <div class="w-full lg:w-1/3">
         <div class="relative card min-w-0">
           <div class="card-body flex flex-col gap-4">
             <h2 class="text-xl font-bold text-commerce-950">Resumen</h2>
