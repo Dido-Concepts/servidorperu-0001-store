@@ -1,4 +1,5 @@
 import { useStore } from '@nanostores/react'
+import { numberContact } from '@src/consts/numberContact'
 import { cartItems, type Product } from '@src/store/cartStore'
 import { useState, useEffect } from 'react'
 
@@ -46,7 +47,7 @@ export default function CheckOutButton () {
 
     const message = `Estoy interesado en los siguientes productos:\n${productDetails}\n\nTotal: ${(total / 100).toFixed(2)}`
 
-    const whatsappURL = `https://api.whatsapp.com/send?phone=51998489480&text=${encodeURIComponent(message)}`
+    const whatsappURL = `https://api.whatsapp.com/send?phone=51${numberContact}&text=${encodeURIComponent(message)}`
     window.open(whatsappURL, '_blank')
   }
   if (!hydrated || !$cartItems || Object.keys($cartItems).length === 0) {

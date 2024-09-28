@@ -1,5 +1,6 @@
 ---
 import Icon from '@src/components/Icon.component.astro'
+import { numberContact } from '@src/consts/numberContact'
 import Layout from '@src/layouts/Layout.astro'
 import { ProductButton } from '@src/modules/producto/components/react/ProductButton.component'
 import { medusa } from '@src/utils/medusa.util'
@@ -45,22 +46,26 @@ const infoProduct = {
 ---
 
 <Layout title={'Servidor Peru - NET'}>
-  <section class="flex flex-col gap-6 max-w-screen-xl mx-auto mb-10 p-4 sm:gap-8 lg:gap-12 lg:mb-20 lg:p-8">
+  <section
+    class="flex flex-col gap-6 max-w-screen-xl mx-auto mb-10 p-4 sm:gap-8 lg:gap-12 lg:mb-20 lg:p-8"
+  >
     <section class="flex flex-col lg:flex-row gap-6 lg:gap-12">
       <div class="flex-1">
-        {product.images && product.images.length > 0 && (
-          <div class="flex gap-2 px-4 sm:px-6 lg:px-8">
-            {product.images.map((image) => (
-              <img
-                src={image.url}
-                alt={product.title}
-                class="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-center object-cover drop-shadow-sm"
-                width={64}
-                height={64}
-              />
-            ))}
-          </div>
-        )}
+        {
+          product.images && product.images.length > 0 && (
+            <div class="flex gap-2 px-4 sm:px-6 lg:px-8">
+              {product.images.map((image) => (
+                <img
+                  src={image.url}
+                  alt={product.title}
+                  class="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-center object-cover drop-shadow-sm"
+                  width={64}
+                  height={64}
+                />
+              ))}
+            </div>
+          )
+        }
         <img
           src={product.thumbnail || '/placehold-products.png'}
           alt={product.title}
@@ -88,7 +93,7 @@ const infoProduct = {
           <a
             class="middle w-full sm:w-auto mr-4 rounded-lg bg-green-500 py-3 px-6 font-sans text-sm lg:text-base font-bold uppercase text-white shadow-md shadow-green-500/20 transition-all hover:shadow-lg hover:shadow-green-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none flex items-center justify-center gap-4"
             data-ripple-light="true"
-            href={`https://api.whatsapp.com/send?phone=51998489480&text=Estoy%20interesado%20en%20este%20producto%3A%20${urlProduct}`}
+            href={`https://api.whatsapp.com/send?phone=51${numberContact}&text=Estoy%20interesado%20en%20este%20producto%3A%20${urlProduct}`}
             target="_blank"
           >
             <Icon name="whatsapp" />
