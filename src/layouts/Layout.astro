@@ -3,6 +3,7 @@ import Footer from '@src/components/Footer.component.astro'
 import Header from '@src/components/Header.component.astro'
 import { CartDrawer } from '@src/components/react'
 import '@fontsource-variable/onest'
+import Contact from '@src/components/contact.component.astro'
 
 interface Props {
   title: string;
@@ -25,9 +26,11 @@ const { title } = Astro.props as Props;
 
     <Header />
     <CartDrawer client:only="react" />
+    <Contact />
     <main class="mx-5">
       <slot />
     </main>
+    <Contact />
     <Footer />
   </body>
 </html>
