@@ -10,7 +10,6 @@ const catergories = await medusa.collections
     console.error('Error retrieving categories:', error)
     return []
   });
-
 ---
 
 <section
@@ -29,10 +28,12 @@ const catergories = await medusa.collections
         {
           catergories.map((cat) => (
             <div class="swiper-slide">
-              <div class="relative rounded-lg break-words border bg-commerce-50 border-gray-400 transition duration-75 hover:transition hover:duration-500 ease-in-out hover:border-commerce-500 hover:shadow-md cursor-pointer">
-                <div class="py-8 text-center">
-                  <div class="text-commerce-95 font-bold">{cat.title}</div>
-                </div>
+              <div class="relative rounded-lg break-words border bg-commerce-50 border-gray-400 transition duration-75 hover:transition hover:duration-500 ease-in-out hover:border-commerce-500 hover:shadow-md">
+                <a href="/shop">
+                  <div class="py-8 text-center">
+                    <div class="text-commerce-95 font-bold">{cat.title}</div>
+                  </div>
+                </a>
               </div>
             </div>
           ))

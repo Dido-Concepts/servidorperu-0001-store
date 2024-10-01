@@ -1,4 +1,3 @@
-import { liteClient as algoliasearch } from 'algoliasearch/lite'
 import { Modal } from 'flowbite-react'
 import type { Hit as AlgoliaHit } from 'instantsearch.js/es/types'
 import {
@@ -10,12 +9,7 @@ import {
   useSearchBox
 } from 'react-instantsearch'
 import { useState } from 'react'
-
-const applicationId = import.meta.env.PUBLIC_APPLICATION_ID ?? ''
-const searchApiKey = import.meta.env.PUBLIC_SEARCH_API_KEY ?? ''
-const indexName = import.meta.env.PUBLIC_ALGOLIA_INDEX ?? ''
-
-const searchClient = algoliasearch(applicationId, searchApiKey)
+import { indexName, searchClient } from '@src/algolia/config'
 
 type HitProps = {
   hit: AlgoliaHit<{
@@ -23,6 +17,8 @@ type HitProps = {
     thumbnail: string
     title: string
     handle: string
+    category: string
+    brand: string
   }>
 }
 
