@@ -17,5 +17,5 @@ export default defineConfig({
         forward: ['dataLayer.push']
       }
     })],
-  site: 'https://servidorperu.net'
+  site: 'https://www.servidorperu.net'
 })
