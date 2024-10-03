@@ -5,6 +5,7 @@ import { CartDrawer } from '@src/components/react'
 import '@fontsource-variable/onest'
 import ContactStrip from '@src/components/ContactStrip.component.astro'
 import WhatsappFloatButton from '@src/components/WhatsappFloatButton.component.astro'
+import GoogleAnalytics from '@src/components/GoogleAnalytics.component.astro'
 
 interface Props {
   title: string;
@@ -22,9 +23,9 @@ const { title } = Astro.props as Props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <GoogleAnalytics />
   </head>
   <body>
-
     <Header />
     <CartDrawer client:only="react" />
     <ContactStrip />
