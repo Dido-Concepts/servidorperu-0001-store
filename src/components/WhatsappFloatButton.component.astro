@@ -1,10 +1,11 @@
 ---
 import { numberContact } from '@src/consts/numberContact'
-import Icon from './Icon.component.astro';
+import Icon from './Icon.component.astro'
+import { messageWhatsapp } from '@src/consts/messageWhatsapp';
 ---
 
 <a
-  href={`https://wa.me/51${numberContact}?text=Hola, estoy interesado en sus servicios`}
+  href={`https://wa.me/51${numberContact}?text=${messageWhatsapp}`}
   target="_blank"
   class="fixed bottom-4 right-4 bg-commerce-600 text-white py-2 px-4 rounded-full shadow-lg hover:bg-commerce-900 transition z-50 group"
 >
