@@ -9,19 +9,25 @@ import GoogleAnalytics from '@src/components/GoogleAnalytics.component.astro'
 
 interface Props {
   title: string;
+  description?: string;
 }
 
-const { title } = Astro.props as Props;
+const { title } = Astro.props as Props
+
+const defaultDescription = 'Venta de servidores, equipos de red, hardware y componentes TI en Perú. ServidorPeru - NET: Las mejores marcas (HPE, Aruba, Dell, Cisco) y precios competitivos en Lima y todo el Perú.'
+const pageDescription = Astro.props.description || defaultDescription
+
+const siteKeywords = 'servidores perú, venta servidores lima, equipos de red perú, hardware ti, hpe perú, aruba perú, switches cisco, routers, sfp, transceivers, componentes servidor, servidorperu, servidor peru net, tecnología perú, infraestructura ti';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es-PE">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={siteKeywords} />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <GoogleAnalytics />
   </head>

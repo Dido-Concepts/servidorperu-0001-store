@@ -34,6 +34,14 @@ const formattedPrice = product.variants?.[0]?.prices?.[0]?.amount
 
 const urlProduct = Astro.request.url
 
+const pageTitle = `Comprar ${product.title || 'Producto TI'} | Servidor Peru - NET`
+
+const productShortDesc = product.description
+  ? product.description.split('\n').slice(0, 3).join(' ')
+  : `Consulta detalles técnicos de ${product.title || 'este producto'}`
+
+const pageDescription = `Encuentra ${product.title || 'equipos TI'} ${product.subtitle ? `- ${product.subtitle}` : ''} en Servidor Peru - NET. ${productShortDesc}. Compra segura y con garantía en Lima, Perú.`
+
 const infoProduct = {
   title: product.title || 'Sin título',
   description: product.description || 'Sin descripción',
@@ -44,9 +52,10 @@ const infoProduct = {
   imageProduct: product.thumbnail || 'default-image-url.jpg'
 }
 
+const imageAltText = product.title ? `Imagen de ${product.title}${product.subtitle ? ` - ${product.subtitle}` : ''}` : 'Imagen de producto ServidorPeru';
 ---
 
-<Layout title={`Servidor Peru - NET | ${product.title}`}>
+<Layout title={pageTitle} description={pageDescription}>
   <section
     class="flex flex-col gap-6 max-w-screen-xl mx-auto mb-10 p-4 sm:gap-8 lg:gap-12 lg:mb-20 lg:p-8"
   >
@@ -58,7 +67,7 @@ const infoProduct = {
               {product.images.map((image) => (
                 <img
                   src={image.url}
-                  alt={product.title}
+                  alt={`${imageAltText} - vista ${(product.images ?? []).indexOf(image) + 1}`}
                   class="w-16 h-16 sm:w-20 sm:h-20 rounded-lg object-center object-cover drop-shadow-sm"
                   width={64}
                   height={64}
@@ -69,7 +78,7 @@ const infoProduct = {
         }
         <img
           src={product.thumbnail || '/placehold-products.png'}
-          alt={product.title}
+          alt={`${imageAltText} - vista principal`}
           class="w-full rounded-t-lg object-center object-cover drop-shadow-sm mt-4"
           width={600}
           height={600}
