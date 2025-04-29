@@ -42,7 +42,9 @@ const infoProduct = {
   handle: product.handle || 'sin-handle',
   idProduct: product.id || 'sin-id',
   imageProduct: product.thumbnail || 'default-image-url.jpg'
-};
+}
+
+console.log({ descripcion: product.description })
 ---
 
 <Layout title={`Servidor Peru - NET | ${product.title}`}>
@@ -107,9 +109,15 @@ const infoProduct = {
       <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800">
         Descripción del Producto
       </h1>
-      <p class="font-bold text-slate-500 text-base sm:text-lg">
-        {product.description}
+      <p class="font-bold text-slate-500 text-base sm:text-lg whitespace-pre-line">
+        {product.description }
       </p>
     </section>
   </section>
 </Layout>
+
+<style>
+  .preserve-lines {
+    white-space: pre-line;
+  }
+</style>
